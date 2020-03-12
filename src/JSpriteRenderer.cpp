@@ -34,26 +34,37 @@ void JSpriteRenderer::BindTexture(JTexture *tex, int textureFilter)
 	}
 }
 
-void JSpriteRenderer::DrawSprite(JTexture *texture, glm::vec4 spriteRect, glm::vec2 position, 
-								glm::vec2 hotspot, glm::vec2 scale, GLfloat rotate, 
-								bool hFlipped, bool vFlipped, glm::vec4 color, int textureFilter)
+void JSpriteRenderer::DrawSprite(JSprite &sprite)
 {
 	this->shader.Use();
 	glm::mat4 model = glm::mat4(1.0f);
-	model = glm::translate(model, glm::vec3(position, 0.0f));
-	model = glm::rotate(model, rotate, glm::vec3(0.0f, 0.0f, 1.0f));
-	model = glm::scale(model, glm::vec3(scale, 1.0f));
-	model = glm::translate(model, glm::vec3(-hotspot, 0.0f));
-	model = glm::scale(model, glm::vec3(spriteRect[2], spriteRect[3], 1.0f));
+	model = glm::translate(model, glm::vec3(sprite.position, 0.0f));
+	model = glm::rotate(model, sprite.rotate, glm::vec3(0.0f, 0.0f, 1.0f));
+	model = glm::scale(model, glm::vec3(sprite.scale, 1.0f));
+	model = glm::translate(model, glm::vec3(-sprite.hotspot, 0.0f));
+	model = glm::scale(model, glm::vec3(sprite.spriteRect[2], sprite.spriteRect[3], 1.0f));
 
 	glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
-	glUniform4f(spriteRectLocation, spriteRect.x, spriteRect.y, spriteRect.z, spriteRect.w);
-	glUniform2f(textureSizeLocation, texture->mTexWidth, texture->mTexHeight);
-	glUniform2i(flippedLocation, hFlipped, vFlipped);
-	glUniform4f(colorLocation, color.x, color.y, color.z, color.w);
+	glUniform4f(spriteRectLocation, sprite.spriteRect.x, 
+									sprite.spriteRect.y, 
+									sprite.spriteRect.z, 
+									sprite.spriteRect.w);
+
+	glUniform2f(textureSizeLocation, 
+				sprite.texture->mTexWidth, 
+				sprite.texture->mTexHeight);
+
+	glUniform2i(flippedLocation, 
+				sprite.hFlipped, 
+				sprite.vFlipped);
+
+	glUniform4f(colorLocation, sprite.color.x, 
+								sprite.color.y, 
+								sprite.color.z, 
+								sprite.color.w);
 
 	glActiveTexture(GL_TEXTURE0);
-	BindTexture(texture, textureFilter);
+	BindTexture(sprite.texture, sprite.textureFilter);
 	glBindVertexArray(this->quadVAO);
 	glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 	glBindVertexArray(0);

@@ -261,14 +261,20 @@ void JRenderer::Enable2D()
 
 void JRenderer::RenderQuad(JQuad* quad, float xo, float yo, float angle, float xScale, float yScale)
 {
-	glm::vec2 hotspot = glm::vec2(quad->mHotSpotX, quad->mHotSpotY);
-	glm::vec4 spriteRect = glm::vec4(quad->mX, quad->mY, quad->mWidth, quad->mHeight);
-	glm::vec2 position = glm::vec2(xo, yo);
-	glm::vec2 scale = glm::vec2(xScale, yScale);
-	glm::vec4 color = glm::vec4(quad->mColor.r, quad->mColor.g, quad->mColor.b, quad->mColor.a) / 255.f; // normalize to 0-1
+	JSprite sprite;
+
+	sprite.texture = quad->mTex;
+	sprite.spriteRect = glm::vec4(quad->mX, quad->mY, quad->mWidth, quad->mHeight);
+	sprite.position = glm::vec2(xo, yo);
+	sprite.hotspot = glm::vec2(quad->mHotSpotX, quad->mHotSpotY);
+	sprite.scale = glm::vec2(xScale, yScale);
+	sprite.rotate = angle;
+	sprite.hFlipped = quad->mHFlipped;
+	sprite.vFlipped = quad->mVFlipped;
+	sprite.color = glm::vec4(quad->mColor.r, quad->mColor.g, quad->mColor.b, quad->mColor.a) / 255.f; // normalize to 0-1
+	sprite.textureFilter = mCurrentTextureFilter;
 	
-	mSpriteRenderer->DrawSprite(quad->mTex, spriteRect, position, hotspot, scale, angle, 
-								quad->mHFlipped, quad->mVFlipped, color, mCurrentTextureFilter);
+	mSpriteRenderer->DrawSprite(sprite);
 }
 
 void JRenderer::DrawPolygon(float* x, float* y, int count, PIXEL_TYPE color, GLenum mode)
