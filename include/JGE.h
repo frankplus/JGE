@@ -10,6 +10,8 @@
 
 bool JGEGetButtonState(u32 button);
 bool JGEGetButtonClick(u32 button);
+u8 JGEGetAnalogX();
+u8 JGEGetAnalogY();
 
 #include "Vector2D.h"
 

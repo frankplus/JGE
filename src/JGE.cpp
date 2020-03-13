@@ -61,20 +61,17 @@ void JGE::SetDelta(int delta)
 float JGE::GetDelta()
 {
 	return mDeltaTime;
-	//return hge->Timer_GetDelta()*1000;
 }
 
 
 float JGE::GetFPS()
 {
-	//return (float)hge->Timer_GetFPS();
 	return 1.0f/mDeltaTime;
 }
 
 
 bool JGE::GetButtonState(u32 button)
 {
-	//return (gButtons&button)==button;
 	return JGEGetButtonState(button);
 }
 
@@ -92,23 +89,17 @@ bool JGE::GetButtonClick(u32 button)
 
 u8 JGE::GetAnalogX()
 {
-	if (JGEGetButtonState(CTRL_A)) return 0;
-	if (JGEGetButtonState(CTRL_D)) return 0xff;
-
-	return 0x80;
+	return JGEGetAnalogX();
 }
 
 
 u8 JGE::GetAnalogY()
 {
-	if (JGEGetButtonState(CTRL_W)) return 0;
-	if (JGEGetButtonState(CTRL_S)) return 0xff;
-
-	return 0x80;
+	return JGEGetAnalogY();
 }
 
 JGE* JGE::mInstance = NULL;
-//static int gCount = 0;
+
 
 JGE* JGE::GetInstance()
 {
@@ -117,14 +108,12 @@ JGE* JGE::GetInstance()
 		mInstance = new JGE();
 	}
 	
-	//gCount++;
 	return mInstance;
 }
 
 
 void JGE::Destroy()
 {
-	//gCount--;
 	if (mInstance)
 	{
 		delete mInstance;
