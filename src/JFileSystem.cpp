@@ -70,7 +70,12 @@ bool JFileSystem::OpenFile(const string &filename)
 		mFileSize = ftell(mFile);
 		fseek(mFile, 0, SEEK_SET);
 		return true;
-	}	
+	}
+	else
+	{
+		printf("could not open file %s \n", filename.c_str());
+	}
+	
 	
 	return false;
 			

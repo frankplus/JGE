@@ -15,7 +15,12 @@
 
 float Random_Float(float min, float max)
 {
-    assert(max > min); 
+    // assert(max > min); 
+	if(max>min){
+		float temp = min;
+		min = max;
+		max = temp;
+	}
     float random = ((float) rand()) / (float) RAND_MAX;
 
     float range = max - min;  
