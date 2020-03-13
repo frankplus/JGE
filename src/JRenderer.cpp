@@ -78,8 +78,8 @@ void JRenderer::InitRenderer()
 {
 	mCurrentTextureFilter = TEX_FILTER_NONE;
 
-	mCurrTexBlendSrc = BLEND_SRC_ALPHA;
-	mCurrTexBlendDest = BLEND_ONE_MINUS_SRC_ALPHA;
+	glEnable(GL_BLEND);
+	SetTexBlend(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	// Load shaders
 	JResourceManager::LoadShader("sprite.vert", "sprite.frag", nullptr, "sprite");
@@ -101,9 +101,6 @@ void JRenderer::InitRenderer()
 
 	// Load Vertex Array Object
 	JRenderer::InitVAO();
-
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void JRenderer::Destroy()

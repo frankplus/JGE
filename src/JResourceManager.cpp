@@ -96,12 +96,12 @@ JTexture* JResourceManager::LoadTextureFromFile(const char* filename)
 
 			glBindTexture(GL_TEXTURE_2D, texid);								// Bind To The Texture ID
 
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
 			glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureInfo.mTexWidth, textureInfo.mTexHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureInfo.mBits);
-			glGenerateMipmap(GL_TEXTURE_2D);
+			// glGenerateMipmap(GL_TEXTURE_2D);
 
 			ret = true;
 		}
