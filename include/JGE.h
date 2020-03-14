@@ -3,16 +3,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string>
 #include <stdarg.h>
 
 #include "JTypes.h"
+
 
 bool JGEGetButtonState(u32 button);
 bool JGEGetButtonClick(u32 button);
 u8 JGEGetAnalogX();
 u8 JGEGetAnalogY();
 void JGEGetMouseMovement(int *x, int *y);
+std::string JGEGetTextInput();
 
 #include "Vector2D.h"
 
@@ -127,6 +129,13 @@ public:
 	/// @param y - pointer for y 
 	//////////////////////////////////////////////////////////////////////////
 	void GetMouseMovement(int *x, int *y);
+
+	//////////////////////////////////////////////////////////////////////////
+	/// Get characters typed since last update
+	///
+	/// @return text typed in input
+	//////////////////////////////////////////////////////////////////////////
+	std::string GetTextInput();
 
 	//////////////////////////////////////////////////////////////////////////
 	/// Get if the system is ended or not.

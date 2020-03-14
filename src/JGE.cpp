@@ -1,19 +1,11 @@
-//-------------------------------------------------------------------------------------
-//
-// JGE++ is a hardware accelerated 2D game SDK for PSP/Windows.
-//
-// Licensed under the BSD license, see LICENSE in JGE root for details.
-// 
-// Copyright (c) 2007 James Hui (a.k.a. Dr.Watson) <jhkhui@gmail.com>
-// 
-//-------------------------------------------------------------------------------------
-
 #include "../include/JGE.h"
 #include "../include/JApp.h"
 #include "../include/JRenderer.h"
 #include "../include/JSoundSystem.h"
 #include "../include/Vector2D.h"
 #include "../include/JFileSystem.h"
+
+using namespace std;
 
 
 JGE::JGE()
@@ -97,7 +89,10 @@ void JGE::GetMouseMovement(int *x, int *y)
 	JGEGetMouseMovement(x, y);
 }
 
-
+string JGE::GetTextInput()
+{
+	return JGEGetTextInput();
+}
 
 JGE* JGE::mInstance = NULL;
 
