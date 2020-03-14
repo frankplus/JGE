@@ -40,7 +40,6 @@ void JGE::Init()
 	mDone = false;
 	mPaused = false;
 	mCriticalAssert = false;
-	mClicked = false;
 	
 	JRenderer::GetInstance();
 	JFileSystem::GetInstance();
@@ -78,12 +77,7 @@ bool JGE::GetButtonState(u32 button)
 
 bool JGE::GetButtonClick(u32 button)
 {
-	if (mClicked) return false;
-	bool click = JGEGetButtonClick(button);
-	if (click) {
-		mClicked = true;
-	}
-	return click;
+	return JGEGetButtonClick(button);
 }
 
 
@@ -97,6 +91,13 @@ u8 JGE::GetAnalogY()
 {
 	return JGEGetAnalogY();
 }
+
+void JGE::GetMouseMovement(int *x, int *y)
+{
+	JGEGetMouseMovement(x, y);
+}
+
+
 
 JGE* JGE::mInstance = NULL;
 
@@ -190,6 +191,4 @@ void JGE::Assert(const char *filename, long lineNumber)
 	mAssertFile = filename;
 	mAssertLine = lineNumber;
 	mCriticalAssert = true;
-
-
 }

@@ -12,6 +12,7 @@ bool JGEGetButtonState(u32 button);
 bool JGEGetButtonClick(u32 button);
 u8 JGEGetAnalogX();
 u8 JGEGetAnalogY();
+void JGEGetMouseMovement(int *x, int *y);
 
 #include "Vector2D.h"
 
@@ -119,6 +120,13 @@ public:
 	//////////////////////////////////////////////////////////////////////////
 	u8 GetAnalogY();
 
+	//////////////////////////////////////////////////////////////////////////
+	/// Get relative mouse movement since previous time this is called
+	///
+	/// @param x - pointer for x 
+	/// @param y - pointer for y 
+	//////////////////////////////////////////////////////////////////////////
+	void GetMouseMovement(int *x, int *y);
 
 	//////////////////////////////////////////////////////////////////////////
 	/// Get if the system is ended or not.
