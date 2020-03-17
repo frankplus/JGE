@@ -149,6 +149,8 @@ public:
 	JTexture();
 	~JTexture();
 
+	void UpdateBits(int width, int height, PIXEL_TYPE* bits);
+
 	int mWidth;
 	int mHeight;
 	int mTexWidth;

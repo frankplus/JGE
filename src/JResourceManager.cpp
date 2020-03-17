@@ -91,10 +91,7 @@ JTexture* JResourceManager::LoadTextureFromFile(const char* filename)
 
 		if (texid != 0)
 		{
-			// OpenGL texture has (0,0) at lower-left
-			// Pay attention when doing texture mapping!!!
-
-			glBindTexture(GL_TEXTURE_2D, texid);								// Bind To The Texture ID
+			glBindTexture(GL_TEXTURE_2D, texid);
 
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);

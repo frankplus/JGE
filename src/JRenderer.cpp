@@ -56,6 +56,12 @@ JTexture::~JTexture()
 		glDeleteTextures(1, &mTexId);
 }
 
+void JTexture::UpdateBits(int width, int height, PIXEL_TYPE* bits)
+{
+	glBindTexture(GL_TEXTURE_2D, mTexId);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, bits);
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 JRenderer* JRenderer::mInstance = NULL;

@@ -32,7 +32,6 @@ private:
 		int mHeight;
 		int mTexWidth;
 		int mTexHeight;
-		bool mVRAM;
 	};
 
 	// Resource storage
