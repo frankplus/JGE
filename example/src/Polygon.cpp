@@ -1,3 +1,8 @@
+/*******************************************************
+ * 
+ * Copyright (C) 2019 Francesco Pham (pham.francesco@gmail.com)
+ * 
+ *******************************************************/
 #include "Polygon.h"
 
 float RandomFloat(float min, float max)

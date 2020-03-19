@@ -1,3 +1,9 @@
+/*******************************************************
+ * 
+ * Copyright (C) 2019 Francesco Pham (pham.francesco@gmail.com)
+ * 
+ *******************************************************/
+
 #include "../include/JResourceManager.h"
 
 #include <iostream>

@@ -10,7 +10,7 @@ In example folder there is an illustrating application made with this game engin
 
 [Here is a port of a game based on this game engine](https://frankplus.github.io)
 
-## Fetures
+## Features
 - Render of filled and unfilled polygons
 - Sprite renderer
 - Sound system
@@ -18,3 +18,12 @@ In example folder there is an illustrating application made with this game engin
 - Text renderer
 - Resource manager to read files and load textures
 - A simple GUI platform
+
+\
+\
+\
+<sub>
+This code is inspired by JGE++, a hardware accelerated 2D game SDK for PSP/Windows. 
+Most of the implementation have been completely rewritten to support webassembly. 
+Licensed under the BSD license, see LICENSE for details.
+</sub>

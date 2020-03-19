@@ -1,3 +1,9 @@
+/*******************************************************
+ * 
+ * Copyright (C) 2019 Francesco Pham (pham.francesco@gmail.com)
+ * Copyright (c) 2007 James Hui (a.k.a. Dr.Watson) <jhkhui@gmail.com>
+ * 
+ *******************************************************/
 #ifndef _JRENDERER_H_
 #define _JRENDERER_H_
 

@@ -1,3 +1,8 @@
+/*******************************************************
+ * 
+ * Copyright (c) 2007 James Hui (a.k.a. Dr.Watson) <jhkhui@gmail.com>
+ * 
+ *******************************************************/
 #ifndef _VECTOR2D_H
 #define _VECTOR2D_H
 

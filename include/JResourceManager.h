@@ -1,3 +1,8 @@
+/*******************************************************
+ * 
+ * Copyright (C) 2019 Francesco Pham (pham.francesco@gmail.com)
+ * 
+ *******************************************************/
 #ifndef RESOURCEMANAGER_H
 #define RESOURCEMANAGER_H
 
