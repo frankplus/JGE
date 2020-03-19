@@ -151,18 +151,13 @@ public:
 	/// @param app - User defined application class.
 	//////////////////////////////////////////////////////////////////////////
 	void SetApp(JApp *app);
-	
 
 	//////////////////////////////////////////////////////////////////////////
-	/// Print debug message.
+	/// Set time delta since last update in seconds
 	///
+	/// @param delta - delta time in seconds
 	//////////////////////////////////////////////////////////////////////////
-	void printf(const char *format, ...);
-
-
-	void Assert(const char *filename, long lineNumber);
-
-	void SetDelta(int delta);
+	void SetDelta(float delta);
 
 protected:
 	JGE();

@@ -57,7 +57,6 @@ public:
 	/// 
 	/// @param width - Width of texture.
 	/// @param height - Height of texture.
-	/// @param mode - Choose to put texture in VRAM (PSP only)
 	/// 
 	//////////////////////////////////////////////////////////////////////////
 	JTexture* CreateTexture(int width, int height);

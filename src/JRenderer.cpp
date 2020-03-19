@@ -1,13 +1,12 @@
 #include "../include/JGE.h"
 #include "../include/JRenderer.h"
-#include "../include/JAssert.h"
 #include "../include/JResourceManager.h"
 
 JQuad::JQuad(JTexture *tex, float x, float y, float width, float height)
 		:mTex(tex), mX(x), mY(y), mWidth(width), mHeight(height)
 {
 
-	JASSERT(tex != NULL);
+	assert(tex != NULL);
 
 	mHotSpotX = 0.0f;
 	mHotSpotY = 0.0f;
@@ -72,7 +71,7 @@ JRenderer* JRenderer::GetInstance()
 	{
 		mInstance = new JRenderer();
 
-		JASSERT(mInstance != NULL);
+		assert(mInstance != NULL);
 
 		mInstance->InitRenderer();
 	}

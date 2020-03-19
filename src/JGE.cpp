@@ -43,9 +43,9 @@ void JGE::Run()
 	
 }
 
-void JGE::SetDelta(int delta)
+void JGE::SetDelta(float delta)
 {
-	mDeltaTime = (float)delta / 1000.0f;		// change to second
+	mDeltaTime = delta;
 }
 
 
@@ -149,17 +149,6 @@ void JGE::End()
 }
 
 
-
-void JGE::printf(const char *format, ...)
-{
-	va_list list;
-	
-	va_start(list, format);
-	vsprintf(mDebuggingMsg, format, list);
-	va_end(list);
-}
-
-
 void JGE::Pause()
 {
 	if (mPaused) return;
@@ -178,12 +167,4 @@ void JGE::Resume()
 		if (mApp != NULL)
 			mApp->Resume();
 	}
-}
-
-
-void JGE::Assert(const char *filename, long lineNumber)
-{
-	mAssertFile = filename;
-	mAssertLine = lineNumber;
-	mCriticalAssert = true;
 }
