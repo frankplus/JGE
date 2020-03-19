@@ -1,7 +1,7 @@
 CXX      := emcc
 CXXFLAGS := -std=c++11 #-pedantic-errors -Wall -Wextra
 LDFLAGS  := -std=c++11 
-BUILD    := ./build
+BUILD    := ./bin
 SRC_DIR      := src
 OBJ_DIR  := $(BUILD)/objects
 APP_DIR  := $(BUILD)/apps
